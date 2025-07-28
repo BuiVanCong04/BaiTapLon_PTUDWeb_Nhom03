@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container giữ layout chính giữa */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Topbar */
+.topbar {
+  background-color: #f8f8f8;
+  font-size: 13px;
+  color: #333;
+  padding: 6px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.topbar-left i {
+  margin-right: 5px;
+  color: #e85a33;
+}
+
+.topbar-left, .topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Middle bar */
+.middlebar {
+  padding: 15px 0;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #000;
+}
+
+.search-bar {
+  flex-grow: 1;
+  margin: 0 30px;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+}
+
+.search-bar button {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  background-color: #e85a33;
+  color: #fff;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  border-left: none;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.icon-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  color: #444;
+  cursor: pointer;
+  position: relative;
+}
+
+.icon-group i {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.icon-group .badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: #e85a33;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 5px;
+  font-size: 10px;
+}
+
+/* Main navigation */
+.main-nav {
+  background-color: #ffffff;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #212529;
+  font-weight: 500;
+  font-size: 14px Roboto;
+  transition: color 0.2s;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main-nav a:hover {
+  color: #e85a33;
+}
