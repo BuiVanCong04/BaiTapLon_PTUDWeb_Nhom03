@@ -3,7 +3,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $database = "web_baitaplon";   //nối sang sql
+    $database = "shop";   //nối sang sql
     $port = 3306;
 
     // Create connection  kết nối sang database 

@@ -131,3 +131,227 @@
 .main-nav a:hover {
   color: #e85a33;
 }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Container giữ layout chính giữa */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Topbar */
+.topbar {
+  background-color: #f8f8f8;
+  font-size: 13px;
+  color: #333;
+  padding: 6px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.topbar-left i {
+  margin-right: 5px;
+  color: #e85a33;
+}
+
+.topbar-left, .topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Middle bar */
+.middlebar {
+  padding: 15px 0;
+  background-color: white;
+  border-bottom: 1px solid #eee;
+}
+
+.logo a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: #000;
+}
+
+.search-bar {
+  flex-grow: 1;
+  margin: 0 30px;
+  display: flex;
+  align-items: center;
+  position: relative; /* Quan trọng để gợi ý bám theo form */
+}
+
+.search-bar input {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-right: none;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+  font-size: 14px;
+}
+
+.search-bar button {
+  padding: 8px 14px;
+  border: 1px solid #ccc;
+  background-color: #e85a33;
+  color: #fff;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+  border-left: none;
+}
+
+.header-icons {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.icon-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 13px;
+  color: #444;
+  cursor: pointer;
+  position: relative;
+}
+
+.icon-group i {
+  font-size: 16px;
+  margin-bottom: 4px;
+}
+
+.icon-group .badge {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: #e85a33;
+  color: #fff;
+  border-radius: 50%;
+  padding: 2px 5px;
+  font-size: 10px;
+}
+
+/* Main navigation */
+.main-nav {
+  background-color: #ffffff;
+}
+
+.main-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 10px 0;
+}
+
+.main-nav a {
+  text-decoration: none;
+  color: #212529;
+  font-weight: 500;
+  font-size: 14px;
+  transition: color 0.2s;
+  font-family: 'Roboto', sans-serif;
+}
+
+.main-nav a:hover {
+  color: #e85a33;
+}
+
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 6px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+}
+
+.suggestion-item:hover {
+  background-color: #f5f5f5;
+}
+
+.thumbnail-wrapper {
+  margin-right: 10px;
+}
+
+.suggestion-text .product-name {
+  font-weight: bold;
+}
+
+.suggestion-text .product-price {
+  font-size: 14px;
+}
+
+
+/* Thêm CSS cho gợi ý tìm kiếm */
+.thumbnail-wrapper {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+.thumbnail-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#suggestion-box {
+  position: absolute;
+  top: 100%;                /* đặt ngay dưới input */
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  margin-top: 4px;
+}
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  gap: 12px; /* khoảng cách giữa ảnh và chữ */
+}
+
+.suggestion-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.suggestion-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start; /* căn chữ bên trái trong khối text */
+}
+
+.product-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.product-price {
+  font-size: 13px;
+  color: #e85a33;
+}
