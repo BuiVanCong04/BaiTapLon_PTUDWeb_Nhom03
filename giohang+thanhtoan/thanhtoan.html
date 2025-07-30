@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lofi Furniture - thanhtoan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #4A90E2;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .left-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .right-section {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            height: fit-content;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 25px;
+            color: #2c3e50;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 30px;
+            border-bottom: 2px solid #e0e6ed;
+        }
+
+        .tab {
+            padding: 12px 25px;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .tab.active {
+            color: #4A90E2;
+            border-bottom-color: #4A90E2;
+            background-color: rgba(74, 144, 226, 0.1);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #555;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e6ed;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #4A90E2;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .shipping-info {
+            background: #e8f4fd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border-left: 4px solid #4A90E2;
+        }
+
+        .payment-methods {
+            margin-bottom: 25px;
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            border: 2px solid #e0e6ed;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .payment-option:hover {
+            border-color: #4A90E2;
+            background-color: rgba(74, 144, 226, 0.05);
+        }
+
+        .payment-option input[type="radio"] {
+            margin-right: 12px;
+            width: auto;
+        }
+
+        .payment-option.selected {
+            border-color: #4A90E2;
+            background-color: rgba(74, 144, 226, 0.1);
+        }
+
+        .cart-item {
+            display: flex;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid #e0e6ed;
+        }
+
+        .item-image {
+            width: 80px;
+            height: 80px;
+            background: #f0f0f0;
+            border-radius: 8px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .item-details {
+            flex: 1;
+        }
+
+        .item-name {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .item-price {
+            color: #4A90E2;
+            font-weight: bold;
+        }
+
+        .order-summary {
+            margin-top: 25px;
+        }
+
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e6ed;
+        }
+
+        .summary-row:last-child {
+            border-bottom: none;
+            font-weight: bold;
+            font-size: 18px;
+            color: #4A90E2;
+            padding-top: 15px;
+            border-top: 2px solid #e0e6ed;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4A90E2, #357ABD);
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            background: linear-gradient(135deg, #357ABD, #2968A3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(74, 144, 226, 0.4);
+        }
+
+        .back-to-cart {
+            color: #4A90E2;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .back-to-cart:hover {
+            color: #357ABD;
+        }
+
+        .back-to-cart::before {
+            content: "←";
+            margin-right: 8px;
+            font-size: 16px;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            .left-section,
+            .right-section {
+                padding: 20px;
+            }
+        }
+
+        .vietnam-flag {
+            width: 20px;
+            height: 14px;
+            background: linear-gradient(to bottom, #da020e 50%, #da020e 50%);
+            position: relative;
+            margin-right: 8px;
+        }
+
+        .vietnam-flag::before {
+            content: "★";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffff00;
+            font-size: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">Lofi Furniture</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <div class="left-section">
+                <h2 class="section-title">Thông tin nhận hàng</h2>
+                
+                <div class="tabs">
+                    <div class="tab active" onclick="switchTab('login')">🔑 Đăng nhập</div>
+                    <div class="tab" onclick="switchTab('shipping')">🚚 Vận chuyển</div>
+                </div>
+
+                <div class="tab-content active" id="login-content">
+                    <div class="form-group">
+                        <input type="email" placeholder="Email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <input type="text" placeholder="Họ và tên" required>
+                    </div>
+
+                    <div class="form-group">
+                        <div style="display: flex; align-items: center;">
+                            <div class="vietnam-flag"></div>
+                            <select style="width: 100px; margin-right: 10px;">
+                                
+                                <option value="+84">+84</option>
+                               
+                            </select>
+                            <input type="tel" placeholder="Số điện thoại (tùy chọn)" style="flex: 1;">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Địa chỉ (tùy chọn)">
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <select>
+                               
+                                <option value="">Tỉnh thành</option>
+                                
+                                <option value="anGiang">An Giang</option>
+                                <option value="bacNinh">Bắc Ninh</option>
+                                <option value="caMau">Cà Mau</option>
+								<option value="CaoBang">Cao Bằng</option>
+                                <option value="CanTho">Cần Thơ</option>
+                                <option value="danang">Đà Nẵng</option>
+                                <option value="Daklak">Đắk Lắk</option>
+								<option value="DienBien">Điện Biên </option>
+                                <option value="DongNai">Đồng Nai</option>
+                                <option value="DongThap">Đồng Tháp</option>
+                                <option value="GiaLai">Gia Lai</option>
+								<option value="hanoi"> Hà Nội</option>
+                                <option value="HaTinh">Hà Tĩnh</option>
+                                <option value="hcm">Hồ Chí Minh</option>
+                                <option value="HaiPhong">Hải Phòng</option>
+								<option value="Hue">Huế</option>
+                                <option value="HungYen">Hưng Yên</option>
+                                <option value="KhanhHoa">Khánh Hoà</option>
+                                <option value="lamdong">Lâm Đồng</option>
+                                <option value="laichau">Lai Châu</option>
+                                <option value="langson">Lạng Sơn</option>
+                                <option value="laocai">Lào Cai</option>
+                                <option value="lnghean">Nghệ An</option>
+                                <option value="ninhbinh">Ninh Bình</option>
+                                <option value="phutho">Phú Thọ</option>
+                                <option value="quangngai">Quảng Ngãi</option>
+                                <option value="quangninh">Quảng Ninh</option>
+                                <option value="quangtri">Quảng Trị</option>
+                                <option value="sonla">Sơn La</option>
+                                <option value="tayninh">Tây Ninh</option>
+                                <option value="thainguyen">Thái Nguyên</option>
+                                <option value="thanhhoa">Thanh Hóa</option>
+                                <option value="vinhlong">Vĩnh Long</option>
+                                <option value="tuyenquang">Tuyên Quang</option>
+                                    
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <select>
+                                <option value="">Quận huyện (tùy chọn)</option>
+                                <option value="cg">Cầu Giấy</option>
+                                <option value="hk">Hoàn Kiếm</option>
+                                <option value="bd">Ba Đình</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <select>
+                            <option value="">Phường xã (tùy chọn)</option>
+                            <option value="yh">Yên Hòa</option>
+                            <option value="dg">Dịch Vọng</option>
+                            <option value="ntp">Nghĩa Tân</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <textarea placeholder="Ghi chú (tùy chọn)" rows="4"></textarea>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="shipping-content">
+                    <div class="shipping-info">
+                        <p>📦 <strong>Vui lòng nhập thông tin giao hàng</strong></p>
+                        <p>Chúng tôi sẽ giao hàng tận nơi trong vòng 2-3 ngày làm việc.</p>
+                    </div>
+                </div>
+
+                <h3 style="margin: 30px 0 20px 0; color: #2c3e50;">Thanh toán</h3>
+                
+                <div class="payment-methods">
+                    <div class="payment-option selected" onclick="selectPayment(this)">
+                        <input type="radio" name="payment" value="bank" checked>
+                        <label>💳 Chuyển khoản</label>
+                    </div>
+                    <div class="payment-option" onclick="selectPayment(this)">
+                        <input type="radio" name="payment" value="cod">
+                        <label>💵 Thu hộ (COD)</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="right-section">
+                <h3 class="section-title">Đơn hàng (1 sản phẩm)</h3>
+                
+                <div class="cart-item">
+                    <div class="item-image">
+                        🪑
+                    </div>
+                    <div class="item-details">
+                        <div class="item-name">Bồn tắm Massage đặt gọc</div>
+                        <div class="item-price">50.350.000₫</div>
+                    </div>
+                </div>
+
+                <div style="margin: 20px 0;">
+                    <input type="text" placeholder="Nhập mã giảm giá" style="width: calc(100% - 100px); margin-right: 10px; padding: 10px; border: 2px solid #e0e6ed; border-radius: 6px;">
+                    <button style="width: 80px; padding: 10px; background: #4A90E2; color: white; border: none; border-radius: 6px; cursor: pointer;">Áp dụng</button>
+                </div>
+
+                <div class="order-summary">
+                    <div class="summary-row">
+                        <span>Tạm tính</span>
+                        <span>50.350.000₫</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Phí vận chuyển</span>
+                        <span>-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Tổng cộng</span>
+                        <span>50.350.000₫</span>
+                    </div>
+                </div>
+
+                <a href="#" class="back-to-cart">Quay về giỏ hàng</a>
+                
+                <button class="btn-primary">ĐẶT HÀNG</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tab) {
+            // Remove active class from all tabs
+            document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+            
+            // Add active class to clicked tab
+            event.target.classList.add('active');
+            document.getElementById(tab + '-content').classList.add('active');
+        }
+
+        function selectPayment(element) {
+            // Remove selected class from all payment options
+            document.querySelectorAll('.payment-option').forEach(po => po.classList.remove('selected'));
+            
+            // Add selected class to clicked option
+            element.classList.add('selected');
+            
+            // Check the radio button
+            element.querySelector('input[type="radio"]').checked = true;
+        }
+
+        // Add form validation
+        document.querySelector('.btn-primary').addEventListener('click', function(e) {
+            const email = document.querySelector('input[type="email"]').value;
+            const name = document.querySelector('input[placeholder="Họ và tên"]').value;
+            
+            if (!email || !name) {
+                e.preventDefault();
+                alert('Vui lòng điền đầy đủ thông tin bắt buộc!');
+                return false;
+            }
+            
+            // Simulate order processing
+            this.innerHTML = 'Đang xử lý...';
+            this.disabled = true;
+            
+            setTimeout(() => {
+                alert('Đặt hàng thành công! Cảm ơn bạn đã mua hàng.');
+                this.innerHTML = 'ĐẶT HÀNG';
+                this.disabled = false;
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

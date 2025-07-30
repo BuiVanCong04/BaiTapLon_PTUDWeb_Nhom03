@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Giỏ hàng</title>
+  <style>
+    body { font-family: Arial; margin: 30px; }
+    .container { display: flex; justify-content: space-between; gap: 30px; }
+    .cart-table { width: 100%; border-collapse: collapse; }
+    .cart-table th, .cart-table td { padding: 10px; border-bottom: 1px solid #ddd; text-align: center; }
+    .product-info { display: flex; align-items: center; gap: 10px; text-align: left; }
+    .product-info img { width: 100px; height: auto; }
+    .quantity-control { display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .quantity-control button { padding: 5px 10px; }
+    .total { text-align: right; margin-top: 20px; font-weight: bold; }
+    .checkout-btn { background: #d94e28; color: white; padding: 10px 30px; border: none; margin-top: 10px; cursor: pointer; }
+    .delivery-options { background: #f5f5f5; padding: 20px; width: 300px; border-radius: 8px; }
+    .delivery-options label { display: block; margin-top: 10px; font-weight: bold; }
+    .delivery-options input[type="text"], select { width: 100%; padding: 5px; margin-top: 5px; }
+    .company-info { display: none; margin-top: 10px; }
+    .name{color: rgb(12, 5, 35);}
+  </style>
+</head>
+<body>
+<h2>Giỏ hàng</h2>
+<div class="container">
+  <div class="left">
+    <table class="cart-table">
+      <thead>
+        <tr>
+          <th>Thông tin sản phẩm</th>
+          <th>Đơn giá</th>
+          <th>Số lượng</th>
+          <th>Thành tiền</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="product-info">
+            <img src="https://bizweb.dktcdn.net/thumb/compact/100/499/932/products/js-8098-js-8099.jpg" alt="Bồn tắm">
+            <div>
+              Bồn tắm Massage đặt góc<br>
+              <a href="#" onclick="removeItem(this)" style="color: red">Xóa</a>
+            </div>
+          </td>
+          <td class="unit-price" data-price="5350000">5.350.000₫</td>
+          <td>
+            <div class="quantity-control">
+              <button onclick="adjustQuantity(this, -1)">-</button>
+              <input type="text" value="1" style="width: 30px; text-align: center;" onchange="updatePrices()">
+              <button onclick="adjustQuantity(this, 1)">+</button>
+            </div>
+          </td>
+          <td class="total-price">5.350.000₫</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="total">Tổng tiền: <span id="total-amount">5.350.000₫</span></div>
+    <!-- <button class="checkout-btn" href="http://127.0.0.1:5500/web-BTL/giohang/thanhtoan.html" >Thanh toán</button> -->
+    <a href="/web-BTL/giohang/thanhtoan.html">
+      <button class="checkout-btn" >thanh toán</button> </a>
+  </div>
+  <div class="delivery-options">
+    <label>Thời gian giao hàng</label>
+    <input type="date">
+    <select>
+      <option>Chọn thời gian</option>
+      <option>08h00 - 12h00</option>
+      <option>14h00 - 18h00</option>
+      <option>19h00 - 21h00</option>
+    </select>
+    <label><input type="checkbox" onchange="toggleCompanyInfo(this)"> Xuất hóa đơn công ty</label>
+    <div class="company-info">
+      <p class="name">tên công ty</p>
+      <input type="text" placeholder="Tên công ty">
+      <p class="name">Mã số thuế</p>
+      <input type="text" placeholder="Mã số thuế">
+      <p class="name">địa chỉ công ty </p>
+      <input type="text" placeholder="Địa chỉ công ty">
+      <p class="name">Email nhận hóa đơn</p>
+      <input type="email" placeholder="Email nhận hóa đơn">
+    </div>
+  </div>
+</div>
+<script>
+  function formatCurrency(value) {
+    return value.toLocaleString('vi-VN') + '₫';
+  }
+
+  function adjustQuantity(btn, delta) {
+    const input = btn.parentNode.querySelector('input');
+    let val = parseInt(input.value);
+    val = isNaN(val) ? 1 : val + delta;
+    if (val < 1) val = 1;
+    input.value = val;
+    updatePrices();
+  }
+
+  function removeItem(link) {
+    const row = link.closest('tr');
+    row.remove();
+    updatePrices();
+  }
+
+  function updatePrices() {
+    const rows = document.querySelectorAll("tbody tr");
+    let total = 0;
+    rows.forEach(row => {
+      const unitPrice = parseInt(row.querySelector('.unit-price').dataset.price);
+      const qty = parseInt(row.querySelector('input').value);
+      const lineTotal = unitPrice * qty;
+      row.querySelector('.total-price').textContent = formatCurrency(lineTotal);
+      total += lineTotal;
+    });
+    document.getElementById('total-amount').textContent = formatCurrency(total);
+  }
+
+  function toggleCompanyInfo(checkbox) {
+    document.querySelector('.company-info').style.display = checkbox.checked ? 'block' : 'none';
+  }
+</script>
+</body>
+</html>
