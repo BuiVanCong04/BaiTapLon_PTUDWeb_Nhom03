@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+/* phần cố định header khi không cuộn  */
+.site-header{
+  position: sticky;
+  top: 0;
+  z-index: 10000;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
 /* Container giữ layout chính giữa */
 .container {
   width: 90%;
@@ -131,3 +140,13 @@
 .main-nav a:hover {
   color: #e85a33;
 }
+
+/* phần cố định header khi cuộn  */
+.fixed-header{
+  position: fixed !important;
+  top: 0;
+  z-index: 9999;
+  width: 100%;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+

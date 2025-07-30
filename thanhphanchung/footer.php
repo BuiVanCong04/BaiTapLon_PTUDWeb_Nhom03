@@ -17,8 +17,8 @@
       </div>
       <div class="footer-column">
         <h3>Liên hệ</h3>
-        <p>Email: support@lofi.vn</p>
-        <p>Hotline: 1900 9999</p>
+        <p>Email: lofifurniture@gmail.com</p>
+        <p>Hotline: 1900 6750</p>
         <div class="social-icons">
           <a href="#"><i class="fab fa-facebook-f"></i></a>
           <a href="#"><i class="fab fa-instagram"></i></a>

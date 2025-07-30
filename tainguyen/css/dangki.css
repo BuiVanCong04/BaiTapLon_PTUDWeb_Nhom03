@@ -1,5 +1,7 @@
 /* auth.css */
-
+body {
+  font-family: Arial, sans-serif;
+}
 .auth-banner {
   background-image: url("//bizweb.dktcdn.net/100/499/932/themes/926650/assets/breadcrumb-bg.jpg?1743048241538");
   background-size: cover;

@@ -1,0 +1,393 @@
+* {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+/* Banner  */
+.hero-banner {
+    position: relative;
+    width: 100%;
+    height: 650px;
+    overflow: hidden;
+}
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+.slide.active {
+    opacity: 1;
+    z-index: 1;
+}
+
+.hero-content {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    color: white;
+    z-index: 2;
+    max-width: 500px;
+    background: rgba(0, 0, 0, 0.5); /* chỉ nền mờ cho phần nội dung */
+    padding: 20px;
+    border-radius: 8px;
+    backdrop-filter: blur(2px); /* tuỳ chọn: làm mờ nhẹ nền */
+}
+.hero-content h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+.hero-content p {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.btn-mua {
+    background-color: #ff5a2c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Danh mục nổi bật  */
+
+.danh-muc {
+    text-align: center;
+    padding: 30px 0 20px;
+}
+.danh-muc h2 {
+    font-size: 30px;
+    text-align: left;
+    padding-left: 130px;  
+    margin-bottom: 30px;
+}
+.danh-muc-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+.danh-muc-item {
+    width: 300px;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+.danh-muc-item img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+.danh-muc-item .title {
+    font-weight: bold;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+.danh-muc-item .so-luong {
+    font-size: 14px;
+    color: gray;
+    padding-bottom: 10px;
+}
+
+/* Giới thiệu  */
+.about-section {
+    display: flex;
+    align-items: center;
+    padding: 50px 130px;
+    background-color: #fff;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+}
+
+.about-content {
+    flex: 1;
+    padding-left: 60px;
+}
+
+.about-content h4 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 10px;
+}
+
+.about-content h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #111;
+}
+
+.about-content p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.features-list li {
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    margin-bottom: 12px;
+    color: #222;
+}
+
+.features-list li::before {
+    content: "✔";
+    color: #ff5722;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+    .about-section {
+    flex-direction: column;
+    padding: 20px;
+    }
+    .about-content {
+        padding-left: 0;
+        margin-top: 20px;
+    }
+}
+
+/* Sản phẩm mới  */
+.san-pham-moi {
+    padding: 40px 130px;
+
+}
+
+.san-pham-moi h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Cố định 4 sản phẩm mỗi hàng */
+    gap: 20px;
+}
+
+.product {
+    background-color: #fff;
+    border: 1px solid #eee;
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.image-container {
+    position: relative;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.discount {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: #e74c3c;
+    color: white;
+    padding: 4px 8px;
+    font-size: 13px;
+    border-radius: 4px;
+}
+
+.product h3 {
+    font-size: 14px;
+    margin: 10px 0 5px;
+}
+
+.price {
+    color: #e74c3c;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.old-price {
+    text-decoration: line-through;
+    color: #888;
+    margin-left: 5px;
+    font-size: 14px;
+}
+
+/* xây dựng phòng tắm  */
+.hero {
+    position: relative;
+    height: 100vh;
+    background-image: url("../images/img_trangchu/image_set.webp");
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 60px;
+    color: white;
+}
+
+.hero-content {
+    max-width: 500px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.hero button {
+    padding: 12px 30px;
+    font-size: 16px;
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+    cursor: pointer;
+    border-radius: 30px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.hero button:hover {
+    background-color: white;
+    color: black;
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+    font-size: 32px;
+    }
+    .hero p {
+    font-size: 16px;
+    }
+    .hero {
+    padding: 0 30px;
+    }
+}
+
+/* feedback  */
+.testimonial-section {
+    display: flex;
+    align-items: center;
+    padding: 60px;
+    background-color: #f5f5f5;
+}
+
+.testimonial-image {
+    flex: 1;
+}
+
+.testimonial-image img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+}
+
+.testimonial-content {
+    flex: 1;
+    padding: 0 40px;
+}
+
+.testimonial-content h2 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.testimonial-boxes {
+    display: flex;
+    gap: 20px;
+}
+
+.testimonial-box {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    flex: 1;
+    position: relative;
+}
+
+.testimonial-box img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 15px;
+}
+
+.testimonial-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.testimonial-name {
+    font-weight: bold;
+}
+
+.testimonial-role {
+    font-size: 14px;
+    color: gray;
+}
+
+.testimonial-quote {
+    font-size: 15px;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 10px;
+}
+
+.quote-icon {
+    color: #FF5722;
+    font-size: 24px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+@media (max-width: 900px) {
+    .testimonial-section {
+    flex-direction: column;
+    padding: 30px;
+    }
+
+    .testimonial-content {
+    padding: 30px 0 0;
+    }
+
+    .testimonial-boxes {
+    flex-direction: column;
+    }
+}

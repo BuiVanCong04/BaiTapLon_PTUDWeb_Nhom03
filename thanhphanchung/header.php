@@ -10,10 +10,10 @@ if (session_status() === PHP_SESSION_NONE) {
     <div class="container">
       <div class="topbar-left">
         <i class="fas fa-phone"></i> 1900 6750
-        <i class="fas fa-envelope"></i> support@sapo.vn
+        <i class="fas fa-envelope"></i> lofifurniture@gmail.com
       </div>
       <div class="topbar-right">
-        <span><i class="fas fa-box"></i> Kiểm tra đơn hàng</span>
+        <span><i class="fas fa-box"></i> Nội thất đẹp</span>
       </div>
     </div>
   </div>

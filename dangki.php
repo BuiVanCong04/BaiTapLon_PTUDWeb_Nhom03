@@ -19,7 +19,7 @@
         <div class="overlay-dark"></div>
         <div class="auth-banner-overlay">
             <h1>Đăng ký tài khoản</h1>
-            <p><a href="trangchu.php">Trang chủ</a> &gt; Đăng ký tài khoản</p>
+            <p><a style="color:white" href="trangchu.php">Trang chủ</a> &gt; Đăng ký tài khoản</p>
         </div>
     </section>
 
