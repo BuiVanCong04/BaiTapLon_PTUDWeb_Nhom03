@@ -1,6 +1,3 @@
-<?php 
-include("connect.php");
-?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,8 +7,8 @@ include("connect.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tất cả sản phẩm</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="tainguyen/css/header.css">
-    <link rel="stylesheet" href="tainguyen/css/footer.css">
+    <link rel="stylesheet" href="../tainguyen/css/header.css">
+    <link rel="stylesheet" href="../tainguyen/css/footer.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -120,14 +117,14 @@ include("connect.php");
 </head>
 
 <body>
-    <?php include("thanhphanchung/header.php"); ?>
+    <?php include("../thanhphanchung/header.php"); ?>
 
     <!-- Banner và tiêu đề -->
     <section class="auth-banner">
         <div class="overlay-dark"></div>
         <div class="auth-banner-overlay">
             <h1>Sản phẩm</h1>
-            <p><a style="color:white" href="trangchu.php">Trang chủ</a> &gt; Tất cả sản phẩm</p>
+            <p>Trang chủ &gt; Tất cả sản phẩm</p>
         </div>
     </section>
 
@@ -138,6 +135,7 @@ include("connect.php");
                 <a href="/Web_BaiTapLon/danhmucsanpham/boncau.php">- Bồn cầu</a><br>
                 <a href="/Web_BaiTapLon/danhmucsanpham/sentam.php">- Sen tắm</a><br>
                 <a href="/Web_BaiTapLon/danhmucsanpham/lavabo.php">- Tủ chậu Lavabo</a><br>
+
             <h3>CHỌN MỨC GIÁ</h3>
             <form>
                 <label><input type="checkbox"> Dưới 500.000đ</label><br>
@@ -149,15 +147,16 @@ include("connect.php");
         <section class="productsSP">
             <div class="product-listSP">
                 <?php
+                $sentam = "sen";
+
                 $conn = mysqli_connect("localhost", "root", "", "web_baitaplon");
-                $sql = "SELECT * FROM san_pham";
+                $sql = "SELECT * FROM san_pham WHERE `id_loai_sp`='$sentam'";
                 $result = mysqli_query($conn, $sql);
 
                 while ($row = mysqli_fetch_assoc($result)) {
                     echo "<div class='sanpham'>";
-                    echo "<a href='chitietSP.php?id={$row['id']}'>";
 
-                    $img = 'tainguyen/' . $row['hinh_anh'];  // Đường dẫn đúng
+                    $img = '../tainguyen/' . $row['hinh_anh'];  // Đường dẫn đúng
                     echo "<img src='$img' alt='" . htmlspecialchars($row['ten_san_pham']) . "'>";
 
                     echo "<h4>" . htmlspecialchars($row['ten_san_pham']) . "</h4>";
@@ -166,7 +165,7 @@ include("connect.php");
                     $gia_dinh_dang = number_format((int)$gia, 0, ',', '.') . 'đ';
                     echo "<p>$gia_dinh_dang</p>";
 
-                    echo "</a>";
+                    echo "</.a>";
                     echo "</div>";
                 }
                 ?>
@@ -174,7 +173,7 @@ include("connect.php");
         </section>
     </main>
 
-   <?php include("thanhphanchung/footer.php"); ?>
+   <?php include("../thanhphanchung/footer.php"); ?>
 </body>
 
 </html>

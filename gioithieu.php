@@ -9,67 +9,66 @@
     <link rel="stylesheet" href="tainguyen/css/header.css">
     <link rel="stylesheet" href="tainguyen/css/footer.css">
     <style>
-        body {
+        /* THAY vì body {...} dùng: */
+        .page-gioithieu {
             font-family: Arial, sans-serif;
             background-color: #ffffff;
             color: #111;
-            line-height: 1.6;
-            /* margin: 40px; */
-            
+            /* line-height: 1.6;  */
         }
 
-        .content {
+        .page-gioithieu .content {
             max-width: 900px;
             margin: auto;
             padding: 50px 0;
         }
 
-        p {
+        /* THAY vì p {...} dùng: */
+        .page-gioithieu p {
             margin-bottom: 16px;
             text-align: justify;
         }
 
-        .auth-banner {
+        .page-gioithieu .auth-banner {
             background-image: url("//bizweb.dktcdn.net/100/499/932/themes/926650/assets/breadcrumb-bg.jpg?1743048241538");
             background-size: cover;
             background-position: center;
             height: 250px;
             position: relative;
         }
-        .auth-banner .overlay-dark {
+
+        .page-gioithieu .auth-banner .overlay-dark {
             position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.4); /* điều chỉnh độ tối ở đây */
+            inset: 0;
+            background-color: rgba(0,0,0,0.4);
             z-index: 1;
         }
 
-        .auth-banner-overlay {
+        .page-gioithieu .auth-banner-overlay {
             position: absolute;
             bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
-            color: white;
+            color: #fff;
             text-align: center;
-            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
             z-index: 2;
         }
 
-        .auth-banner h1 {
+        .page-gioithieu .auth-banner h1 {
             font-size: 28px;
             font-weight: bold;
         }
 
-        .auth-banner p {
+        .page-gioithieu .auth-banner p {
             margin-top: 10px;
             font-size: 14px;
         }
-    </style>
+</style>
+
 </head>
 
-<body>
+<body class="page-gioithieu">
     <?php include("thanhphanchung/header.php"); ?>
 
     <!-- Banner và tiêu đề -->

@@ -141,6 +141,60 @@
   color: #e85a33;
 }
 
+/* css phần sản phẩm - danh mục  */
+.has-mega-menu {
+  position: relative;
+}
+
+.has-mega-menu .mega-menu {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 300px;
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 999;
+  border-top: 2px solid #e85a33;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.has-mega-menu:hover .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mega-column h4 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #e85a33;
+}
+
+.mega-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mega-column li {
+  margin-bottom: 8px;
+}
+
+.mega-column a {
+  text-decoration: none;
+  color: #333;
+}
+
+.mega-column a:hover {
+  text-decoration: underline;
+}
+
 /* phần cố định header khi cuộn  */
 .fixed-header{
   position: fixed !important;
@@ -150,3 +204,61 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.search-bar {
+  position: relative;
+  flex-grow: 1;
+  margin: 0 30px;
+  display: flex;
+  align-items: center;
+}
+
+#suggestion-box {
+  position: absolute;
+  top: calc(100% + 4px);  /* cách ô input 4px */
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid #ccc;
+  max-height: 300px;
+  overflow-y: auto;
+  z-index: 1000;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+/* Gợi ý từng item / NGUYÊN*/
+.suggestion-item {
+  display: flex;
+  align-items: center;
+  padding: 8px 10px;
+  border-bottom: 1px solid #eee;
+  cursor: pointer;
+  gap: 12px;
+}
+
+.suggestion-item:hover {
+  background-color: #f5f5f5;
+}
+
+.suggestion-item img {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.suggestion-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-name {
+  font-size: 14px;
+  font-weight: 500;
+  color: #333;
+}
+
+.product-price {
+  font-size: 13px;
+  color: #e85a33;
+}
