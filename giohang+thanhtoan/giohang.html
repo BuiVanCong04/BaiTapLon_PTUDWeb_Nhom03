@@ -5,24 +5,75 @@
   <title>Giỏ hàng</title>
   <style>
     body { font-family: Arial; margin: 30px; }
-    .container { display: flex; justify-content: space-between; gap: 30px; }
-    .cart-table { width: 100%; border-collapse: collapse; }
-    .cart-table th, .cart-table td { padding: 10px; border-bottom: 1px solid #ddd; text-align: center; }
-    .product-info { display: flex; align-items: center; gap: 10px; text-align: left; }
-    .product-info img { width: 100px; height: auto; }
-    .quantity-control { display: flex; align-items: center; justify-content: center; gap: 10px; }
-    .quantity-control button { padding: 5px 10px; }
-    .total { text-align: right; margin-top: 20px; font-weight: bold; }
-    .checkout-btn { background: #d94e28; color: white; padding: 10px 30px; border: none; margin-top: 10px; cursor: pointer; }
-    .delivery-options { background: #f5f5f5; padding: 20px; width: 300px; border-radius: 8px; }
-    .delivery-options label { display: block; margin-top: 10px; font-weight: bold; }
-    .delivery-options input[type="text"], select { width: 100%; padding: 5px; margin-top: 5px; }
-    .company-info { display: none; margin-top: 10px; }
-    .name{color: rgb(12, 5, 35);}
+    .container { 
+         display: flex;
+         justify-content: space-between;
+         gap: 30px;
+         }
+    .cart-table {
+         width: 100%;
+          border-collapse: collapse;
+         }
+    .cart-table th, 
+    .cart-table td { 
+         padding: 10px;
+         border-bottom: 1px solid #ddd;
+         text-align: center;
+         }
+    .product-info { 
+        display: flex; 
+        align-items: center;
+         gap: 10px; 
+         text-align: left; 
+        }
+    .product-info img { 
+        width: 100px; 
+        height: auto;
+     }
+    .quantity-control { 
+        display: flex;
+         align-items: center; 
+         justify-content: center;
+          gap: 10px;
+         }
+    .quantity-control button {
+         padding: 5px 10px;
+         }
+    .total { text-align: right;
+        margin-top: 20px; 
+        font-weight: bold;
+     }
+    .checkout-btn { background: #d94e28;
+         color: white;
+          padding: 10px 30px;
+           border: none;
+            margin-top: 10px;
+             cursor: pointer;
+             }
+    .delivery-options { background: #f5f5f5;
+         padding: 20px;
+          width: 300px;
+           border-radius: 8px;
+         }
+    .delivery-options label { display: block;
+         margin-top: 10px;
+          font-weight: bold;
+         }
+    .delivery-options input[type="text"], select {
+         width: 100%;
+          padding: 5px;
+           margin-top: 5px;
+         }
+    .company-info { display: none;
+         margin-top: 10px;
+         }
+    .name{
+        color: rgb(12, 5, 35);
+    }
   </style>
 </head>
 <body>
-<h2>Giỏ hàng</h2>
+<a href="/giohang+thanhtoan/giohang.html" style="color: #099df9;"><h2 ><i><b>Giỏ hàng</b></i></h2></a>
 <div class="container">
   <div class="left">
     <table class="cart-table">
@@ -57,8 +108,9 @@
     </table>
     <div class="total">Tổng tiền: <span id="total-amount">5.350.000₫</span></div>
     <!-- <button class="checkout-btn" href="http://127.0.0.1:5500/web-BTL/giohang/thanhtoan.html" >Thanh toán</button> -->
-    <a href="/web-BTL/giohang/thanhtoan.html">
-      <button class="checkout-btn" >thanh toán</button> </a>
+    <a href="/giohang+thanhtoan/thanhtoan.html">
+      <button class="checkout-btn" >thanh toán</button> 
+    </a>
   </div>
   <div class="delivery-options">
     <label>Thời gian giao hàng</label>
