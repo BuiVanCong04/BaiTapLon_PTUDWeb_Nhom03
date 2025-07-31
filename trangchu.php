@@ -14,16 +14,16 @@
 
 <body>
 
-    <?php include("thanhphanchung/header.php"); ?>
+    <?php include("thanhphanchung/header.php"); ?> 
 
-        <!-- banner  -->
+    <!-- banner  -->
     <div class="hero-banner">
         <div class="slide active">
             <img src="tainguyen/images/img_trangchu/slider_1.webp" style="width:100%; height:100%; object-fit: cover;">
             <div class="hero-content">
                 <h1>Đương đại cổ điển</h1>
                 <p>Những vật liệu tốt nhất kết hợp với kỹ năng truyền thống tạo nên vẻ ngoài hoàn hảo</p>
-                <a href="#" class="btn-mua">MUA NGAY</a>
+                <a href="sanpham.php" class="btn-mua">MUA NGAY</a>
             </div>
         </div>
         <div class="slide">
@@ -31,7 +31,7 @@
             <div class="hero-content">
                 <h1>Không gian sang trọng</h1>
                 <p>Thiết kế hiện đại, tinh tế cho phòng tắm đẳng cấp</p>
-                <a href="#" class="btn-mua">MUA NGAY</a>
+                <a href="sanpham.php" class="btn-mua">MUA NGAY</a>
             </div>
         </div>
     </div>
@@ -41,24 +41,27 @@
         <h2>Danh mục nổi bật</h2>
         <div class="danh-muc-list">
             <div class="danh-muc-item">
+                <a href="/Web_BaiTapLon/danhmucsanpham/bontam.php" style="text-decoration: none; color: black">
                 <img src="tainguyen/images/img_trangchu/bon-tam.webp" alt="Bồn tắm">
-                <div class="title">Bồn tắm</div>
-                <div class="so-luong">9 sản phẩm</div>
+                <div class="title">Bồn tắm</div> </a>
             </div>
             <div class="danh-muc-item">
+                <a href="/Web_BaiTapLon/danhmucsanpham/boncau.php" style="text-decoration: none; color: black">
                 <img src="tainguyen/images/img_trangchu/bon-cau.webp" alt="Bồn cầu">
-                <div class="title">Bồn cầu</div>
-                <div class="so-luong">8 sản phẩm</div>
+                <div class="title">Bồn cầu</div> </a>
+                
             </div>
             <div class="danh-muc-item">
+                <a href="/Web_BaiTapLon/danhmucsanpham/sentam.php" style="text-decoration: none; color: black">
                 <img src="tainguyen/images/img_trangchu/sen-tam.webp" alt="Sen tắm">
-                <div class="title">Sen tắm</div>
-                <div class="so-luong">4 sản phẩm</div>
+                <div class="title">Sen tắm</a></div> </a>
+ 
             </div>
             <div class="danh-muc-item">
+                <a href="/Web_BaiTapLon/danhmucsanpham/lavabo.php" style="text-decoration: none; color: black">
                 <img src="tainguyen/images/img_trangchu/chau-lavabo.webp" alt="Tủ chậu Lavabo">
-                <div class="title">Tủ chậu Lavabo</div>
-                <div class="so-luong">4 sản phẩm</div>
+                <div class="title">Tủ chậu Lavabo</a></div> </a>
+   
             </div>
         </div>
     </section>
@@ -85,85 +88,38 @@
         </div>
     </section>
 
-    <!-- Sản phẩm mới  -->
+    <!-- Sản phẩm mới -->
     <section class="san-pham-moi">
         <h2>Sản phẩm mới</h2>
         <div class="grid">
-        <!-- Sản phẩm -->
+            <?php
+            include("connect.php");
+            $sql = "SELECT * FROM san_pham ORDER BY id DESC LIMIT 8";
+            $result = mysqli_query($conn, $sql);
+            while ($row = mysqli_fetch_assoc($result)) {
+            ?>
             <div class="product">
-                <div class="image-container">
-                    <span class="discount">-38%</span>
-                    <img src="tainguyen/images/img_trangchu/spmoi1.webp" alt="Sản phẩm 1">
-                </div>
-                <h3>Tủ chậu lavabo phòng tắm kiêm máy giặt</h3>
-                <p class="price">13.500.000đ <span class="old-price">15.650.000đ</span></p>
+                <a href="chitietSP.php?id=<?= $row['id'] ?>" style="text-decoration: none; color: inherit;" aria-label="<?= htmlspecialchars($row['ten_san_pham']) ?>">
+                    <div class="image-container">
+                        <img src="tainguyen/<?= htmlspecialchars($row['hinh_anh']) ?>" alt="<?= htmlspecialchars($row['ten_san_pham']) ?>" loading="lazy">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name"><?= htmlspecialchars($row['ten_san_pham']) ?></h3>
+                        <p class="product-price"><?= number_format($row['gia'], 0, ",", ".") ?>đ</p>
+                    </div>
+                </a>
             </div>
-            <div class="product">
-                <div class="image-container">
-                    <span class="discount">-38%</span>
-                    <img src="tainguyen/images/img_trangchu/spmoi2.webp" alt="Sản phẩm 2">
-                </div>
-                <h3>Tủ chậu lavabo liền khối 2 tầng</h3>
-                <p class="price">5.590.000đ <span class="old-price">6.650.000đ</span></p>
-            </div>
-            <div class="product">
-                <div class="image-container">
-                    <span class="discount">-38%</span>
-                    <img src="tainguyen/images/img_trangchu/spmoi3.webp" alt="Sản phẩm 3">
-                </div>
-                <h3>Tủ chậu bo tròn kèm tủ gương thông minh</h3>
-                <p class="price">9.200.000đ <span class="old-price">10.200.000đ</span></p>
-            </div>
-            <div class="product">
-                <div class="image-container">
-                    <span class="discount">-38%</span>
-                    <img src="tainguyen/images/img_trangchu/spmoi4.webp" alt="Sản phẩm 4">
-                </div>
-                <h3>Bàn đá đôi chống xước, bề mặt bóng, chậu liền mép</h3>
-                <p class="price">2.250.000đ <span class="old-price">4.750.000đ</span></p>
-            </div>
-            <div class="product">
-                <div class="image-container">
-                    <span class="discount">-38%</span>
-                    <img src="tainguyen/images/img_trangchu/spmoi5.webp" alt="Sản phẩm 5">
-                </div>
-                <h3>Sen cây bàn phím đồng mạ crom bóng cao cấp</h3>
-                <p class="price">1.650.000đ <span class="old-price">2.650.000đ</span></p>
-            </div>
-            <div class="product">
-                <div class="image-container">
-                    <span class="discount">-38%</span>
-                    <img src="tainguyen/images/img_trangchu/spmoi6.webp" alt="Sản phẩm 6">
-                </div>
-                <h3>Sen cây tắm mạ PVD màu ghi xám</h3>
-                <p class="price">2.850.000đ <span class="old-price">4.650.000đ</span></p>
-            </div>
-            <div class="product">
-                <div class="image-container">
-                    <span class="discount">-38%</span>
-                    <img src="tainguyen/images/img_trangchu/spmoi7.webp" alt="Sản phẩm 7">
-                </div>
-                <h3>Bồn tắm Massage đặt góc</h3>
-                <p class="price">50.350.000đ <span class="old-price">55.900.000đ</span></p>
-            </div>
-            <div class="product">
-                <div class="image-container">
-                    <span class="discount">-38%</span>
-                    <img src="tainguyen/images/img_trangchu/spmoi8.webp" alt="Sản phẩm 8">
-                </div>
-                <h3>Bồn tắm nằm đặt sàn tròn</h3>
-                <p class="price">33.650.000đ <span class="old-price">35.650.000đ</span></p>
-            </div>
-
+            <?php } ?>
         </div>
     </section>
+
 
     <!-- xây dựng phòng tắm  -->
     <section class="hero">
         <div class="hero-content">
             <h1>Xây dựng phòng tắm</h1>
             <p>Khám phá bộ sưu tập đầy đủ các sản phẩm phòng tắm của Lofi được thiết kế cho ngôi nhà của bạn.</p>
-            <button>MUA NGAY</button>
+            <a href="sanpham.php" class="btn-mua">MUA NGAY</a>
         </div>
     </section>
 
@@ -209,7 +165,7 @@
     </section>
 
     <?php include("thanhphanchung/footer.php"); ?>
-
+    <script src="tainguyen/js/header.js"></script>
 </body>
 
 </html>
